@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+
+</head>
+<body onload="time()">
+    <div class="todo-container">
+        <div class="date-hour">
+            <p id="date">date</p>
+            <p id="hour">hour</p>
+        </div>
+
+        <header>
+            <h1>To Do List</h1>
+        </header>
+<!-- Add Tabs -->
+        <form action="" id="todo-from">
+            <p>Add Your Task here</p>
+            <div class="form-control">
+                <input type="text" id="todo-input" placeholder="Type here ...">
+
+                <button type="submit">
+                    <i class="fa-thin fa-plus"></i>
+                </button>
+            </div>
+        </form>
+
+<!-- Edit The Tabs -->
+
+        <form action="" id="edit-from" class="hide">
+            <p>Edit Your Task</p>
+            <div class="form-control">
+                <input type="text" id="Edit-input" placeholder="Type here ...">
+                <button>
+                    <i class="fa-solid fa-chek-double"></i>
+                </button>
+            </div>
+            <button id="cancel-edit-btn" type="button" class="cancel-edit-btn">cancel</button>
+        </form>
+
+        <!-- Task List -->
+        <div class="todo-List" id="todo-List">
+            <div class="todo">
+                <h3>some default Task</h3>
+                <button class="finish-todo">
+                   <i class="fa-solid fa-check"></i> 
+                </button>
+                <button class="edit-todo">
+                    <i class="fa-solid fa-pen"></i> 
+                 </button>
+                 <button class="remove-todo">
+                    <i class="fa-solid fa-xmark"></i> 
+                 </button>
+            </div>
+
+        </div>
+    </div>
+
+    
+</body>
+</html>

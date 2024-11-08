@@ -1,0 +1,106 @@
+const data = new Date();
+
+const todoForm = document.querySelector("#todo-form");
+const todoInput = document.querySelector("#todo-input");
+const todosList = document.querySelector("#todo-list");
+const editForm = document.querySelector("#edit-form");
+const editInput = document.querySelector("edit-input");
+const cancelEditBtn = document.querySelector("cancel-edit-btn");
+
+const timeElpased =Date.now();
+const today = new Date(timeElpased);
+document.getElementById("date").innerHTML = today.toDateString();
+
+
+function Time() {
+}
+
+todoForm.addEventListener("submit", (e) => {
+e.preventDefault();
+const inputValue = todoInput.Value;
+if(inputValue)
+    saveTodo(inputValue); //save Function
+})
+
+function saveTodo = (text) => {
+    const todo = document.createElementa("dive");
+    todo.classList.add("todo");
+
+    const todoTitle = document.createElement("h3");
+    todoTitle.innerHTML = text;
+    todo.appendchild(todoTitle);
+
+    const doneBtn = document.createElement("button");
+    doneBtn.classList.add("finish-todo");
+    doneBtn.innerHTML = '<i class="fa-solid fa-check"></i>';
+    todoappendchild(doneBtn);
+    
+    const editBtn = document.createElement("button");
+    doneBtn.classList.add("finish-todo");
+    doneBtn.innerHTML = '<i class="fa-solid fa-pen"></i>';
+    todoappendchild(editBtn);
+    
+    const removeBtn = document.createElement("button");
+    doneBtn.classList.add("finish-todo");
+    doneBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+    todoappendchild(removeBtn);
+
+    todoList.appendchild(todo);
+    todoInput.value ="";
+    todoInput.focus();
+}
+
+document.addEventListener("click", (e) =>{
+    const targetEl = e.target;
+    const parentEl = targetEl.closest("div");
+    let todoTitle;
+
+    if(parentEl && parentEl.querySelector("h3"))
+       todoTitle = parentEl.querySelector("h3").innerText;
+
+    if(parentEl.classList.contains("finish-todo"))
+        parentEl.classList.toggle("done");
+
+    if(parentEl.classList.contains("remove-todo"))
+       parentEl.remove();
+
+    if(parentEl.classList.contains("edit-todo")){
+        toggleForms();
+        editInput.val = todoTitle;
+        oldInputValue = todoTitle;
+
+    }
+
+})
+
+const toggleForms = () => {
+editForm.classList.toggle("hide");
+todoForm.classList.toggle("hide");
+todoList.classList.toggle("hide");
+}
+
+cancelEditBtn.addEventListener("click", (e) =>{
+e.preventDefault();
+toggleForms();
+})
+
+editForm.addEventListener("submit", (e) =>{
+    e.preventDefault();
+
+const editInputValue = editInput.Value;
+if(editInputValue)
+    updateTodo(editInput) //update value function
+
+toggleForms();
+
+})
+
+const updateTodo = (text) => {
+    const todos = document.querySelector(".todo");
+    todos.forEach((todo) =>{
+        let todoTitle = todo.querySelector(h3);
+        
+        if(todoTitle.innerHTML === oldInputValue)
+            todoTitle.innerText = text;
+    })
+}

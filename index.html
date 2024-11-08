@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لیست کارها</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+</head>
+<body onload="updateTime()">
+    <div class="todo-container">
+        <div class="date-hour">
+            <p id="date">تاریخ</p>
+            <p id="hour">ساعت</p>
+        </div>
+
+        <header>
+            <h1>لیست کارها</h1>
+        </header>
+
+        <form action="" id="todo-form">
+            <p >کارهای خود را اینجا اضافه کنید</p>
+            <div class="form-control">
+                <input type="text" id="todo-input" placeholder="اینجا تایپ کنید ...">
+                <button type="submit">
+                    <img src="./image/add.png" alt="اضافه کردن کار" />
+                </button>
+            </div>
+        </form>
+
+        <form action="" id="edit-form" class="hide">
+            <p>ویرایش کار شما</p>
+            <div class="form-control">
+                <input type="text" id="edit-input" placeholder="اینجا تایپ کنید ...">
+                <button type="submit">
+                    <img src="image/tick.png" alt="تأیید ویرایش" />
+                </button>
+            </div>
+            <button id="cancel-edit-btn" type="button" class="cancel-edit-btn">
+                <img src="./image/cancel.png" />
+            </button>
+        </form>
+
+        <div class="todo-list" id="todo-list">
+            <!-- کارها به صورت داینامیک اضافه می‌شوند -->
+        </div>
+    </div>
+</body>
+</html>
